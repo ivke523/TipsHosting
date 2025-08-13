@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Minecraft server hosting with instant setup. Play with friends without downloads or credit cards. Supports all versions and modpacks.">
+    <title>TipsHosting - Instant Minecraft Server Hosting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+        }
+        .server-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .server-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(74, 163, 223, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(74, 163, 223, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 163, 223, 0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-cube text-2xl"></i>
+                <span class="text-xl font-bold">TipsHosting</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-gray-300">Home</a>
+                <a href="#" class="hover:text-gray-300">Features</a>
+                <a href="#" class="hover:text-gray-300">FAQ</a>
+                <a href="#" class="hover:text-gray-300">Support</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="px-4 py-2 bg-white text-blue-700 rounded-lg font-medium hover:bg-gray-200 transition">Login</button>
+                <button class="md:hidden text-xl" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden px-4 pb-4" id="mobile-menu">
+            <a href="#" class="block py-2 hover:text-gray-300">Home</a>
+            <a href="#" class="block py-2 hover:text-gray-300">Features</a>
+            <a href="#" class="block py-2 hover:text-gray-300">FAQ</a>
+            <a href="#" class="block py-2 hover:text-gray-300">Support</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Play Minecraft with Friends</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Start a free Minecraft server in seconds. No downloads, no setup, no credit card required.</p>
+            <button class="px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-lg font-bold text-lg transition transform hover:scale-105 pulse">
+                Create Your Free Server <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+            <div class="mt-8 flex justify-center space-x-4">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                    <span>100% Free</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                    <span>No Installation</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                    <span>24/7 Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6 server-card rounded-lg">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-plus text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">1. Create Server</h3>
+                    <p class="text-gray-600">Click "Create Server" and choose a name. That's it!</p>
+                </div>
+                <div class="text-center p-6 server-card rounded-lg">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cog text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">2. Customize</h3>
+                    <p class="text-gray-600">Set game mode, difficulty, and invite friends.</p>
+                </div>
+                <div class="text-center p-6 server-card rounded-lg">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-gamepad text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">3. Play!</h3>
+                    <p class="text-gray-600">Join with your Minecraft client and start playing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Dashboard -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Your Server Dashboard</h2>
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden server-card">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h3 class="text-xl font-semibold">My Awesome Server</h3>
+                            <p class="text-gray-500">Status: <span class="text-green-500 font-medium">Online</span></p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                                <i class="fas fa-play mr-2"></i>Start
+                            </button>
+                            <button class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+                                <i class="fas fa-stop mr-2"></i>Stop
+                            </button>
+                            <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                <i class="fas fa-cog mr-2"></i>Settings
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-medium mb-2">Server Info</h4>
+                            <div class="space-y-2">
+                                <p><span class="font-medium">IP:</span> play.tipscraft.com</p>
+                                <p><span class="font-medium">Port:</span> 25565</p>
+                                <p><span class="font-medium">Version:</span> 
+                                    <select class="ml-2 p-1 border rounded text-sm">
+                                        <optgroup label="Vanilla">
+                                            <option>1.20.1</option>
+                                            <option>1.19.4</option>
+                                            <option>1.18.2</option>
+                                        </optgroup>
+                                        <optgroup label="Paper">
+                                            <option>1.20.1</option>
+                                            <option>1.19.4</option>
+                                            <option>1.18.2</option>
+                                        </optgroup>
+                                        <optgroup label="Purpur">
+                                            <option>1.20.1</option>
+                                            <option>1.19.4</option>
+                                            <option>1.18.2</option>
+                                        </optgroup>
+                                        <optgroup label="Spigot">
+                                            <option>1.20.1</option>
+                                            <option>1.19.4</option>
+                                            <option>1.18.2</option>
+                                        </optgroup>
+                                        <optgroup label="Bukkit">
+                                            <option>1.20.1</option>
+                                            <option>1.19.4</option>
+                                            <option>1.18.2</option>
+                                        </optgroup>
+                                        <optgroup label="Forge">
+                                            <option>1.20.1</option>
+                                            <option>1.19.4</option>
+                                            <option>1.18.2</option>
+                                        </optgroup>
+                                        <optgroup label="Fabric">
+                                            <option>1.20.1</option>
+                                            <option>1.19.4</option>
+                                            <option>1.18.2</option>
+                                        </optgroup>
+                                    </select>
+                                </p>
+                                <p><span class="font-medium">Geyser Support:</span> <span class="text-green-500">Enabled</span></p>
+                                <p><span class="font-medium">Players:</span> Unlimited</p>
+                                <p><span class="font-medium">RAM:</span> 5GB</p>
+                                <p><span class="font-medium">Storage:</span> 20GB SSD</p>
+                                <p><span class="font-medium">CPU:</span> 4 Threads / 8 Cores</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-medium mb-2">Quick Settings</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-sm font-medium mb-1">Game Mode</label>
+                                    <select class="w-full p-2 border rounded">
+                                        <option>Survival</option>
+                                        <option>Creative</option>
+                                        <option>Adventure</option>
+                                        <option>Spectator</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-1">Difficulty</label>
+                                    <select class="w-full p-2 border rounded">
+                                        <option>Peaceful</option>
+                                        <option>Easy</option>
+                                        <option>Normal</option>
+                                        <option>Hard</option>
+                                    </select>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="geyser-toggle" class="mr-2" checked>
+                                    <label for="geyser-toggle" class="text-sm font-medium">Enable Geyser (Bedrock support)</label>
+                                </div>
+                                <div class="flex items-center mb-3">
+                                    <input type="checkbox" id="mod-support" class="mr-2">
+                                    <label for="mod-support" class="text-sm font-medium">Enable Mod Support</label>
+                                </div>
+                                <div id="mod-options" class="hidden ml-6 space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" id="forge" name="mod-loader" value="forge" class="mr-2">
+                                        <label for="forge" class="text-sm">Forge</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="fabric" name="mod-loader" value="fabric" class="mr-2">
+                                        <label for="fabric" class="text-sm">Fabric</label>
+                                    </div>
+                                    <div class="mt-2">
+                                        <label class="block text-sm font-medium mb-1">Popular Modpacks</label>
+                                        <select class="w-full p-2 border rounded text-sm">
+                                            <option value="">Select a modpack...</option>
+                                            <optgroup label="Forge">
+                                                <option>All The Mods 9</option>
+                                                <option>RLCraft</option>
+                                                <option>SkyFactory 4</option>
+                                                <option>Valhelsia 5</option>
+                                                <option>Enigmatica 6</option>
+                                            </optgroup>
+                                            <optgroup label="Fabric">
+                                                <option>Better Minecraft</option>
+                                                <option>Fabulously Optimized</option>
+                                                <option>All of Fabric 6</option>
+                                                <option>Rebirth of the Night</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mt-3">
+                                    <input type="checkbox" id="plugin-support" class="mr-2">
+                                    <label for="plugin-support" class="text-sm font-medium">Enable Plugins</label>
+                                </div>
+                                <div id="plugin-options" class="hidden ml-6 space-y-2 mt-2">
+                                    <label class="block text-sm font-medium mb-1">Popular Plugins</label>
+                                    <select multiple class="w-full p-2 border rounded text-sm h-32">
+                                        <option>EssentialsX</option>
+                                        <option>WorldEdit</option>
+                                        <option>WorldGuard</option>
+                                        <option>LuckPerms</option>
+                                        <option>Vault</option>
+                                        <option>GriefPrevention</option>
+                                        <option>McMMO</option>
+                                        <option>Dynmap</option>
+                                        <option>CoreProtect</option>
+                                        <option>Shopkeepers</option>
+                                        <option>Jobs</option>
+                                        <option>AdvancedBan</option>
+                                        <option>HolographicDisplays</option>
+                                        <option>Citizens</option>
+                                        <option>ProtocolLib</option>
+                                        <option>PlaceholderAPI</option>
+                                        <option>ViaVersion</option>
+                                        <option>Geyser-Spigot</option>
+                                        <option>Floodgate</option>
+                                    </select>
+                                    <p class="text-xs text-gray-500">Hold CTRL to select multiple plugins</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-medium mb-2">Whitelist Players</h4>
+                        <div class="flex space-x-2 mb-2">
+                            <input type="text" placeholder="Minecraft username" class="flex-grow p-2 border rounded">
+                            <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                <i class="fas fa-plus mr-2"></i>Add
+                            </button>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <p class="text-sm text-gray-500">No whitelisted players yet. Add friends to restrict access.</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium mb-2">Console</h4>
+                        <div class="bg-black text-green-400 p-3 rounded font-mono text-sm h-32 overflow-y-auto mb-2">
+                            <p>[12:34:56] Server started!</p>
+                            <p>[12:35:01] Player1 joined the game</p>
+                            <p>[12:35:23] Player2 joined the game</p>
+                        </div>
+                        <div class="flex">
+                            <input type="text" placeholder="Enter command..." class="flex-grow p-2 border rounded-l">
+                            <button class="px-4 py-2 bg-gray-700 text-white rounded-r hover:bg-gray-800">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose TipsHosting?</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="flex items-start">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-bolt text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Instant Setup</h3>
+                        <p class="text-gray-600">Get your server running in under 30 seconds with our one-click setup.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-dollar-sign text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">100% Free</h3>
+                        <p class="text-gray-600">No hidden fees or premium tiers. We believe multiplayer should be accessible to everyone.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-cloud text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Automatic Sleep</h3>
+                        <p class="text-gray-600">Servers automatically stop when inactive to save resources and costs.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-shield-alt text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
+                        <p class="text-gray-600">Our team is available around the clock to help with any server issues.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Play with Friends?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Create your free Minecraft server now and start playing in seconds.</p>
+            <button class="px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-lg font-bold text-lg transition transform hover:scale-105">
+                Get Started For Free <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-4 bg-gray-50 hover:bg-gray-100 font-medium">
+                        <div class="flex justify-between items-center">
+                            <span>Is this really free?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden p-4">
+                        <p class="text-gray-600">Yes! MineCraftFree is 100% free to use. We support our service through non-intrusive ads and optional donations. There are no hidden fees or premium tiers.</p>
+                    </div>
+                </div>
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-4 bg-gray-50 hover:bg-gray-100 font-medium">
+                        <div class="flex justify-between items-center">
+                            <span>How many players can join my server?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden p-4">
+                        <p class="text-gray-600">Our servers support unlimited players! You can invite as many friends as you want to join your Minecraft world.</p>
+                    </div>
+                </div>
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-4 bg-gray-50 hover:bg-gray-100 font-medium">
+                        <div class="flex justify-between items-center">
+                            <span>What happens when my server is inactive?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden p-4">
+                        <p class="text-gray-600">To save resources, servers automatically shut down after 30 minutes of inactivity. Your world is saved and will be exactly as you left it when you start the server again.</p>
+                    </div>
+                </div>
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-4 bg-gray-50 hover:bg-gray-100 font-medium">
+                        <div class="flex justify-between items-center">
+                            <span>Can I use mods or plugins?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden p-4">
+                        <p class="text-gray-600">We support all major server types including Vanilla, Paper, Purpur, Spigot, and Bukkit across multiple versions. For modded gameplay, we support Forge and Fabric modpacks - simply upload your modpack files through our dashboard.</p>
+                        <p class="text-gray-600 mt-2">Our servers come with Geyser pre-installed (toggleable in settings) for Bedrock compatibility, and we support both plugins and mods for complete customization of your Minecraft experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">TipsHosting</h3>
+                    <p class="text-gray-400">The simplest way to play Minecraft multiplayer with friends. No downloads, no setup, no cost.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Create Server</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Dashboard</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">24/7 Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Donate</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                            class="mb-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition">
+                        <i class="fas fa-arrow-up mr-2"></i>Back to Top
+                    </button>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-reddit"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="text-gray-400 mt-4">© 2023 TipsHosting. Not affiliated with Mojang or Microsoft.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Toggle content
+                content.classList.toggle('hidden');
+                
+                // Rotate icon
+                if (content.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Toggle mod/plugin options
+        document.getElementById('mod-support').addEventListener('change', function() {
+            document.getElementById('mod-options').classList.toggle('hidden', !this.checked);
+        });
+        
+        document.getElementById('plugin-support').addEventListener('change', function() {
+            document.getElementById('plugin-options').classList.toggle('hidden', !this.checked);
+        });
+
+        // Loading spinner for server creation
+        function showLoading() {
+            const spinner = document.createElement('div');
+            spinner.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            spinner.innerHTML = `
+                <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
+            `;
+            document.body.appendChild(spinner);
+            setTimeout(() => spinner.remove(), 2000);
+        }
+
+        // Simulate server creation form
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Create') || button.textContent.includes('Get Started')) {
+                button.addEventListener('click', function() {
+                    showLoading();
+                    setTimeout(() => {
+                        alert('Server created successfully! Redirecting to dashboard...');
+                        // In a real app, would redirect to dashboard
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
